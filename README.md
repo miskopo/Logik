@@ -1,4 +1,4 @@
-# Logik
+:octocat: # Logik
 Logik game implementation with various solving startegies.
 This implementation servers primarly as school project.
 
