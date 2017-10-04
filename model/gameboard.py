@@ -3,15 +3,18 @@
 """
 from enum import Enum
 
+
 class Gameboard:
     """
     Class representing gameboard consisting of guessed pattern, status field and possible colors to choose from.
     """
-    def __init__(self, number_of_colors=8, pattern_size=5):
+    def __init__(self, number_of_colors=8, pattern_size=5, attemps=12):
         self.number_of_colors = number_of_colors
         self.pattern_size = pattern_size
+        self.attemps = attemps
 
 
+# TODO: Change to dictionary
 class Color(Enum):
     RED = 1
     GREEN = 2
@@ -21,5 +24,4 @@ class Color(Enum):
     WHITE = 6
     BLACK = 7
     VIOLET = 8
-
 
