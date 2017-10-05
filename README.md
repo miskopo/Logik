@@ -1,4 +1,5 @@
-# Logik :octocat:
+# Logik :octocat:  
+[![Build Status](https://travis-ci.org/miskopo/Logik.svg?branch=master)](https://travis-ci.org/miskopo/Logik)
 
 Logik game implementation with various solving startegies.
 This implementation servers primarly as school project.
