@@ -1,27 +1,34 @@
 """
 :author: Michal Polovka
 """
-from enum import Enum
+from random import randint
 
 
 class Gameboard:
     """
     Class representing gameboard consisting of guessed pattern, status field and possible colors to choose from.
     """
-    def __init__(self, number_of_colors=8, pattern_size=5, attemps=12):
+    def __init__(self, number_of_colors=8, pattern_size=5, attempts=12):
         self.number_of_colors = number_of_colors
         self.pattern_size = pattern_size
-        self.attemps = attemps
+        self.attempts = attempts
+        self.colors = ["RED", "GREEN", "BLUE", "YELLOW", "WHITE", "BLACK", "CYAN"][:number_of_colors+1]
+        self.pattern = []
+        self.guessed = []
+        self.evaluation = []
+
+    def generate_pattern(self):
+        self.pattern = "44444"
+        # chosen by fair dice roll
+        # guaranteed to be random
+        self.pattern = "".join([str(randint(0, self.number_of_colors)) for _ in range(0, self.pattern_size)])
+
+    def guess_pattern(self):
+        pass
+
+    def evaluate_guessed_pattern(self):
+        pass
 
 
-# TODO: Change to dictionary
-class Color(Enum):
-    RED = 1
-    GREEN = 2
-    BLUE = 3
-    YELLOW = 4
-    CYAN = 5
-    WHITE = 6
-    BLACK = 7
-    VIOLET = 8
+
 
