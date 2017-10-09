@@ -1,8 +1,8 @@
 # Logik :octocat:  
 [![Build Status](https://travis-ci.org/miskopo/Logik.svg?branch=master)](https://travis-ci.org/miskopo/Logik)
 
-Logik game implementation with various solving startegies.
-This implementation servers primarly as school project.
+Logik game implementation with various solving strategies.
+This implementation servers primarily as school project.
 
 
 Logik is a game known to world as **Mastermind**, however in former Czechoslovakia it was known as Logik:
@@ -14,7 +14,7 @@ _Mastermind or Master Mind is a code-breaking game for two players. The modern g
 ## Objectives:
 - [ ] Implement game engine and grading system
 - [ ] Implement solving strategies
-- [ ] Run automated games and collect data about overall effectivness and plot them.
+- [ ] Run automated games and collect data about overall efficiency and plot them.
 
 ## Solving strategies:
 - [ ] **Brute force**: computer tries every possibility till it finds solution or loose, eventually
