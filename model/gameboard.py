@@ -2,7 +2,7 @@
 :author: Michal Polovka
 """
 from random import randint
-from controller/brute_force import BruteForce
+from controller.brute_force import BruteForce
 
 class Gameboard:
     """
