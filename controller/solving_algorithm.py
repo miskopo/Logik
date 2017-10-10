@@ -4,13 +4,13 @@
 from abc import ABCMeta
 
 
-class SolvingAlgorithm(ABCMeta):
+class SolvingAlgorithm:
     """
     Meta class representing general solving algorithm
     """
 
-    def __init__(self, name):
-        self.name = name
+    def __init__(self):
+        pass
 
     def guess_pattern(self):
         pass
