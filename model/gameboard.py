@@ -2,7 +2,7 @@
 :author: Michal Polovka
 """
 from random import randint
-
+from controller/brute_force import BruteForce
 
 class Gameboard:
     """
@@ -23,7 +23,7 @@ class Gameboard:
         # guaranteed to be random
         self.pattern = "".join([str(randint(0, self.number_of_colors)) for _ in range(0, self.pattern_size)])
 
-    def guess_pattern(self):
+    def guess_pattern(self, solving_algorithm_name):
         pass
 
     def evaluate_guessed_pattern(self):
