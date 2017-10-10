@@ -1,7 +1,7 @@
 """
 :author: Michal Polovka
 """
-form solving_algorithm import SolvingAlgorithm
+from solving_algorithm import SolvingAlgorithm
 
 class BruteForce(SolvingAlgorithm):
     """
