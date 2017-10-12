@@ -7,5 +7,6 @@ def test_init():
     assert len(bruteforce.colors) == 8
     assert bruteforce.pattern_size == 5
 
+
 def guess_pattern():
     pass
