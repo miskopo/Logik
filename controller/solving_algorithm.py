@@ -9,8 +9,8 @@ class SolvingAlgorithm:
     Meta class representing general solving algorithm
     """
 
-    def __init__(self):
-        pass
+    def __init__(self, name):
+        self.name = name
 
     def guess_pattern(self):
         pass

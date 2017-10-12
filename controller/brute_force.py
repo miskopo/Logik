@@ -8,4 +8,6 @@ class BruteForce(SolvingAlgorithm):
     """
     Class represents Brute Force solving algorithm.
     """
-    pass
+    def __init__(self):
+        super.__init__
+

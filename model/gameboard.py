@@ -4,6 +4,7 @@
 from random import randint
 from controller.brute_force import BruteForce
 
+
 class Gameboard:
     """
     Class representing gameboard consisting of guessed pattern,
