@@ -1,12 +1,11 @@
 """
 :author: Michal Polovka
 """
-from abc import ABCMeta
 
 
 class SolvingAlgorithm:
     """
-    Meta class representing general solving algorithm
+    Abstract class representing general solving algorithm
     """
 
     def __init__(self, pattern_size, colors):

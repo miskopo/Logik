@@ -4,6 +4,7 @@
 from controller.solving_algorithm import SolvingAlgorithm
 from itertools import product
 
+
 class BruteForce(SolvingAlgorithm):
     """
     Class represents Brute Force solving algorithm.
