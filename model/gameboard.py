@@ -1,8 +1,9 @@
 """
 :author: Michal Polovka
 """
-from random import randint
 from controller.brute_force import BruteForce
+from random import randint
+
 
 
 class Gameboard:
@@ -14,9 +15,7 @@ class Gameboard:
         self.number_of_colors = number_of_colors
         self.pattern_size = pattern_size
         self.attempts = attempts
-        self.colors = [
-                "RED", "GREEN", "BLUE", "YELLOW", "WHITE", "BLACK", "CYAN"
-                ][:number_of_colors+1]
+        self.colors = [range(0,number_of_colors+1)] # colors are represented by numbers as they are not being shown here
         self.pattern = []
         self.guessed = []
         self.evaluation = []
@@ -28,13 +27,6 @@ class Gameboard:
         self.pattern = "".join(
                 [str(randint(0, self.number_of_colors)) 
                     for _ in range(0, self.pattern_size)])
-
-    def guess_pattern(self, solving_algorithm_name):
-        pass
-
-    def evaluate_guessed_pattern(self):
-        pass
-
 
 
 
