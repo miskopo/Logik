@@ -24,7 +24,7 @@ class Gameboard:
         # chosen by fair dice roll
         # guaranteed to be random
         self.pattern = "".join(
-            (randint(0, self.number_of_colors))
+            str(randint(0, self.number_of_colors))
                     for _ in range(0, self.pattern_size))
 
 
