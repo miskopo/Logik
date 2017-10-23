@@ -14,7 +14,8 @@ class Controller:
         pass
 
     def guess_pattern(self):
-        self.guessed =  self.solver.guess_pattern()
+        self.solver.guess_pattern()
+        return self.solver.guessed
 
     # def evaluate_guessed_pattern(self):
     #     pass

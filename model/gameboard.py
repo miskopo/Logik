@@ -4,6 +4,7 @@
 from random import randint
 
 
+
 class Gameboard:
     """
     Class representing gameboard consisting of guessed pattern,
