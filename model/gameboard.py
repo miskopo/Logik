@@ -15,7 +15,7 @@ class Gameboard:
         self.number_of_colors = number_of_colors
         self.pattern_size = pattern_size
         self.attempts = attempts
-        self.colors = list(range(0, number_of_colors + 1))  # colors are represented by numbers as they are not being shown here
+        self.colors = list(range(0, number_of_colors))  # colors are represented by numbers as they are not being shown here
         self.pattern = []
         self.guessed = []
         self.evaluation = []
