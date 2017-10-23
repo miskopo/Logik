@@ -15,14 +15,15 @@ class BruteForce(SolvingAlgorithm):
 
     def guess_pattern(self):
         # generate cartesian product of possible colors
-        self.guessed = list(map(lambda x: list(x), list(product(self.colors, repeat=self.pattern_size))[:self.attempts]))
+        if len(self.guessed) == 0:
+            self.guessed = list(map(lambda x: list(x), list(product(self.colors, repeat=self.pattern_size))[:self.attempts]))
         return self.guessed
 
-    def assess_evaluation(self, evaluation):
-        pass
-
-    def decide_next_step(self):
-        pass
+    def decide_next_step(self, evaluation, pattern_size):
+        if evaluation == [str(1) for _ in range(pattern_size)]:
+            return "finish"
+        else:
+            return "continue"
 
 
 

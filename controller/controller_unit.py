@@ -3,9 +3,10 @@ from controller.brute_force_solving_algorithm import BruteForce
 
 
 class Controller:
-    def __init__(self, solving_algorithm_name):
-        self.gameboard = Gameboard(attempts=50)
+    def __init__(self, solving_algorithm_name, attempts=1000):
+        self.gameboard = Gameboard(attempts)
         self.gameboard.generate_pattern()
+        self.guessed = []
         if solving_algorithm_name == "bruteforce":
             self.solver = BruteForce(self.gameboard.pattern_size, self.gameboard.colors, self.gameboard.attempts)
 
@@ -13,7 +14,7 @@ class Controller:
         pass
 
     def guess_pattern(self):
-        return self.solver.guess_pattern()
+        self.guessed =  self.solver.guess_pattern()
 
     # def evaluate_guessed_pattern(self):
     #     pass
@@ -21,18 +22,31 @@ class Controller:
     def make_one_turn(self, iteration=0):
         self.gameboard.guessed = self.guess_pattern()[iteration]
         self.gameboard.evaluate_guess()
-        self.solver.decide_next_step()
-        print(self.gameboard.evaluation)
 
     def run_game(self):
-        pass
+        for iteration in range(self.gameboard.attempts):
+            self.make_one_turn(iteration)
+            action = self.solver.decide_next_step(self.gameboard.evaluation, self.gameboard.pattern_size)
+            if action == "finish":
+                self.end_game(iteration, self.gameboard.pattern, solver_won=True)
+                break
+            elif action == "continue":
+                continue
+        else:
+            self.end_game(self.gameboard.attempts, self.gameboard.pattern, solver_won=False)
+
+    @staticmethod
+    def end_game(iteration, pattern, solver_won):
+        print("The game ended in {} moves.\n Guessed pattern was {}\n {} won.".format(
+            iteration,
+            "".join(pattern),
+            ("Solver" if solver_won else "Game")
+        ))
+        return True
 
 
 # temporary solution
-controller = Controller("bruteforce")
-for i in range(controller.gameboard.attempts):
-    print(controller.gameboard.pattern)
-    controller.make_one_turn(iteration=i)
-    print(controller.gameboard.guessed)
-    print(10*"-")
+controller = Controller("bruteforce", attempts=1000)
+controller.run_game()
+
 

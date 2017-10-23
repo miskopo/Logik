@@ -21,13 +21,12 @@ class Gameboard:
         self.evaluation = []
 
     def generate_pattern(self):
-        # self.pattern = (4,4,4,4,4)
+        # self.pattern = [4,4,4,4,4]
         # chosen by fair dice roll
-        # guaranteed to be random
+        # guaranteed to be random (xkcd.com/221)
         self.pattern = [str(randint(0, self.number_of_colors)) for _ in range(0, self.pattern_size)]
 
     def evaluate_guess(self):
         self.evaluation = [
-            "1" if str(x) == self.pattern[
-                self.guessed.index(x)] else "0" if str(x) in self.pattern else "-1" for x in self.guessed
+            "1" if str(x) == self.pattern[i] else "0" if str(x) in self.pattern else "-1" for i, x in enumerate(self.guessed)
         ]

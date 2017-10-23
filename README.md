@@ -15,7 +15,7 @@ _Mastermind or Master Mind is a code-breaking game for two players. The modern g
 
 
 ## Objectives:
-- [ ] Implement game engine and grading system
+- [x] Implement game engine and grading system
 - [ ] Implement solving strategies
 - [ ] Run automated games and collect data about overall efficiency and plot them.
 
