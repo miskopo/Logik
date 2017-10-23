@@ -18,10 +18,10 @@ class Controller:
     # def evaluate_guessed_pattern(self):
     #     pass
 
-    def make_one_turn(self):
-        self.gameboard.guessed = self.guess_pattern()
-        self.gameboard.evaulate_guess()
-
+    def make_one_turn(self, iteration=0):
+        self.gameboard.guessed = self.guess_pattern()[iteration]
+        self.gameboard.evaluate_guess()
+        print(self.gameboard.evaluation)
 
     def run_game(self):
         pass

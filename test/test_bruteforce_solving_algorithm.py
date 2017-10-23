@@ -8,8 +8,8 @@ def test_init():
     assert brute_force.pattern_size == 5
 
 
-def guess_pattern():
+def test_guess_pattern():
     brute_force.guess_pattern()
     assert len(brute_force.guessed) != 0
     assert isinstance(brute_force.guessed, list)
-    assert isinstance(brute_force.guessed[0], list)
+    assert isinstance(brute_force.guessed[0], tuple)
