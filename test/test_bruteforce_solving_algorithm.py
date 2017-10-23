@@ -12,4 +12,4 @@ def test_guess_pattern():
     brute_force.guess_pattern()
     assert len(brute_force.guessed) != 0
     assert isinstance(brute_force.guessed, list)
-    assert isinstance(brute_force.guessed[0], tuple)
+    assert isinstance(brute_force.guessed[0], list)
