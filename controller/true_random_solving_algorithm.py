@@ -2,6 +2,7 @@
 :author: Michal Polovka
 """
 from controller.solving_algorithm import SolvingAlgorithm
+from itertools import permutations
 
 
 class TrueRandom(SolvingAlgorithm):
@@ -10,4 +11,4 @@ class TrueRandom(SolvingAlgorithm):
         self.guessed = []
 
     def guess_pattern(self):
-        pass
+        self.guessed = map(lambda x: [x], [permutations(self.colors)])[:self.attempts]

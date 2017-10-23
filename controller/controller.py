@@ -1,5 +1,5 @@
 from model.gameboard import Gameboard
-from controller.brute_force import BruteForce
+from controller.brute_force_solving_algorithm import BruteForce
 
 
 class Controller:

@@ -1,7 +1,7 @@
 """
 :author: Michal Polovka
 """
-from controller.brute_force import BruteForce
+from controller.brute_force_solving_algorithm import BruteForce
 from random import randint
 
 
