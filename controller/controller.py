@@ -15,12 +15,12 @@ class Controller:
     def guess_pattern(self):
         return self.solver.guess_pattern()
 
-    def evaluate_guessed_pattern(self):
-        pass
+    # def evaluate_guessed_pattern(self):
+    #     pass
 
     def make_one_turn(self):
         self.gameboard.guessed = self.guess_pattern()
-        self.gameboard.evaluation = self.evaluate_guessed_pattern()
+        self.gameboard.evaulate_guess()
 
 
     def run_game(self):
