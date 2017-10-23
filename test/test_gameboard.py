@@ -25,10 +25,10 @@ def test_generate_pattern():
     gb.pattern_size = 6
     gb.generate_pattern()
     assert gb.pattern is not None
-    assert isinstance(gb.pattern, str)
+    assert isinstance(gb.pattern, list)
     assert len(gb.pattern) == gb.pattern_size
     gb.pattern_size = 5
     gb.generate_pattern()
     assert gb.pattern is not None
-    assert isinstance(gb.pattern, str)
+    assert isinstance(gb.pattern, list)
     assert len(gb.pattern) == gb.pattern_size

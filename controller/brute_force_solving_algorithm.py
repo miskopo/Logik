@@ -18,7 +18,7 @@ class BruteForce(SolvingAlgorithm):
         self.guessed = list(map(lambda x: list(x), list(product(self.colors, repeat=self.pattern_size))[:self.attempts]))
         return self.guessed
 
-    def assess_evaluation(self):
+    def assess_evaluation(self, evaluation):
         pass
 
     def decide_next_step(self):

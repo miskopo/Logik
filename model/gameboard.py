@@ -24,10 +24,10 @@ class Gameboard:
         # self.pattern = (4,4,4,4,4)
         # chosen by fair dice roll
         # guaranteed to be random
-        self.pattern = "".join(
-            str(randint(0, self.number_of_colors))
-            for _ in range(0, self.pattern_size))
-
+        self.pattern = [str(randint(0, self.number_of_colors)) for _ in range(0, self.pattern_size)]
 
     def evaluate_guess(self):
-        self.evaluation = ["1" if x == self.pattern[self.guessed.index(x)] else "0" if x in self.pattern else "-1" for x in self.guessed]
+        self.evaluation = [
+            "1" if str(x) == self.pattern[
+                self.guessed.index(x)] else "0" if str(x) in self.pattern else "-1" for x in self.guessed
+        ]
