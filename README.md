@@ -28,5 +28,5 @@ _Mastermind or Master Mind is a code-breaking game for two players. The modern g
 ## Bonus:
 Implement playable interactive mode.
 
-## Current output:
-![Current output for implemented solving strategies](Logik/view/graph.png )
+## Current output for 1000 repetitions:
+![Current output for implemented solving strategies](/view/graph.png )
