@@ -18,4 +18,4 @@ class Benchmark:
                         attempts=self.args.attempts,
                         pattern_size=self.args.pattern_size)
                     self.results.append((Controller.solvers[solver].__name__, game()))
-        print(self.results)
+        # print(self.results),
