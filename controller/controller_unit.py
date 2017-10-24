@@ -1,12 +1,13 @@
 from model.gameboard import Gameboard
+import arg_parser
 from controller.brute_force_solving_algorithm import BruteForce
 from controller.true_random_solving_algorithm import TrueRandom
 from controller.single_color_solving_algorithm import SingleColor
 from controller.semi_random_solving_algorithm import SemiRandom
 
-
 class Controller:
     def __init__(self, solving_algorithm_name, attempts=1000):
+        self.args = arg_parser.init_parser()
         self.gameboard = Gameboard(attempts=attempts)
         self.gameboard.generate_pattern()
         self.guessed = []
@@ -44,16 +45,17 @@ class Controller:
         else:
             self.end_game(self.gameboard.attempts, self.gameboard.pattern, solver_won=False)
 
-    @staticmethod
-    def end_game(iteration, pattern, solver_won):
-        print("The game ended in {} moves.\n Guessed pattern was {}\n {} won.".format(
-            iteration,
-            "".join(pattern),
-            ("Solver" if solver_won else "Game")
-        ))
+    def end_game(self, iteration, pattern, solver_won):
+        if self.args.verbose:
+            print("The game ended in {} moves.\n Guessed pattern was {}\n Used solver: {}\n {} won.".format(
+                iteration,
+                "".join(pattern),
+                str(self.solver.__class__.__name__),
+                ("Solver" if solver_won else "Game")
+            ))
         return True
 
 
 # temporary solution
-# controller = Controller("brute_force", attempts=32768)
-# controller.run_game()
+controller = Controller("true_random", attempts=10000)
+controller.run_game()

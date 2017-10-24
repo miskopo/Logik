@@ -14,6 +14,10 @@ class BruteForce(SolvingAlgorithm):
         self.guessed = []
 
     def guess_pattern(self):
+        """
+        Generate feasible region for this type of algorithm.
+        :return: None, result is stored in attribute of this class.
+         """
         # generate cartesian product of possible colors
         # Note: For pattern_size = 5 and number of colors = 8 there are 32,768 possibilities.
         if len(self.guessed) == 0:
@@ -21,6 +25,12 @@ class BruteForce(SolvingAlgorithm):
                                     list(product(self.colors, repeat=self.pattern_size))))[:self.attempts+1]
 
     def decide_next_step(self, evaluation, pattern_size):
+        """
+        Method decides next step in solving strategy in consideration of given evaluation of previous guess.
+        :param evaluation: evaluation of previous guess done by gameboard
+        :param pattern_size: size of the guessed pattern
+        :return: string designating whether to continue or end game
+        """
         if evaluation == [str(1) for _ in range(pattern_size)]:
             return "finish"
         else:
