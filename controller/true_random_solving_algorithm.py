@@ -19,7 +19,8 @@ class TrueRandom(SolvingAlgorithm):
         Generate feasible region for this type of algorithm.
         :return: None, result is stored in attribute of this class.
         """
-        self.guessed = [[choice(self.colors) for _ in range(self.pattern_size)] for _ in range(self.attempts)]
+        if len(self.guessed) == 0:
+            self.guessed = [[choice(self.colors) for _ in range(self.pattern_size)] for _ in range(self.attempts)]
 
     def decide_next_step(self, evaluation, pattern_size):
         """

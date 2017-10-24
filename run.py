@@ -5,9 +5,6 @@ fore_init()
 
 args = init_parser()
 
-# game = Controller("brute_force", args, attempts=1000)
-# game()
-
 
 def run():
     try:
@@ -24,15 +21,18 @@ def run():
                 choice = input("Your choice? ")
                 if choice != '0' and choice != '1':
                     print(Fore.LIGHTRED_EX, "Invalid choice. try again.",Fore.RESET)
+            # TODO: Change to args to avoid duplicating code
             if choice == 0:
                 # play the game
                 pass
             elif choice == 1:
                 # run benchmark
-                pass
+                game = Controller("brute_force", args, attempts=1000)
+                game()
     except KeyboardInterrupt:
         print(Fore.LIGHTYELLOW_EX, "\nExiting.", Fore.RESET)
         exit(0)
+
 
 if __name__ == '__main__':
     run()

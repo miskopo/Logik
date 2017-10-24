@@ -1,9 +1,9 @@
 from model.gameboard import Gameboard
-import arg_parser
 from controller.brute_force_solving_algorithm import BruteForce
 from controller.true_random_solving_algorithm import TrueRandom
 from controller.single_color_solving_algorithm import SingleColor
 from controller.semi_random_solving_algorithm import SemiRandom
+from arg_parser import init_parser
 
 
 class Controller:
@@ -54,5 +54,9 @@ class Controller:
                 str(self.solver.__class__.__name__),
                 ("Solver" if solver_won else "Game")
             ))
-        return True
+        return solver_won
 
+
+# parser = init_parser()
+# game = Controller("true_random", parser, attempts=100000)
+# game()
