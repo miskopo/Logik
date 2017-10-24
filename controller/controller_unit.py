@@ -55,5 +55,5 @@ class Controller:
 
 
 # temporary solution
-controller = Controller("brute_force", attempts=32768)
-controller.run_game()
+# controller = Controller("brute_force", attempts=32768)
+# controller.run_game()
