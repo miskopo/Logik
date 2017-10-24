@@ -1,4 +1,4 @@
-from controller.single_color import SingleColor
+from controller.single_color_solving_algorithm import SingleColor
 
 single_color = SingleColor(colors=range(8), pattern_size=5, attempts=12)
 
