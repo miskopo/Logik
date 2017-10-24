@@ -44,7 +44,7 @@ class Controller:
         print()
         for iteration in range(self.gameboard.attempts):
             self.make_one_turn(iteration)
-            action = self.solver.decide_next_step(self.gameboard.evaluation, self.gameboard.pattern_size, iteration)
+            action = self.solver.decide_next_step(self.gameboard.evaluation, iteration)
             if action == "finish":
                 self.end_game(iteration, self.gameboard.pattern, solver_won=True)
                 break

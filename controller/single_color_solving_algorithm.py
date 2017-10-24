@@ -13,8 +13,8 @@ class SingleColor(SolvingAlgorithm):
         if len(self.guessed) == 0:
             self.guessed = [self.pattern_size * str(i).split() for i in self.colors]
 
-    def decide_next_step(self, evaluation, pattern_size, iteration):
-        if evaluation == [str(1) for _ in range(pattern_size)]:
+    def decide_next_step(self, evaluation, iteration):
+        if evaluation == [str(1) for _ in range(self.pattern_size)]:
             return "finish"
         elif '-1' in evaluation:
             last_guess = self.guessed[iteration]

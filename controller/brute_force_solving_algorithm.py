@@ -24,7 +24,7 @@ class BruteForce(SolvingAlgorithm):
             self.guessed = list(map(lambda x: list(x),
                                     list(product(self.colors, repeat=self.pattern_size))))[:self.attempts+1]
 
-    def decide_next_step(self, evaluation, pattern_size, iteration):
+    def decide_next_step(self, evaluation, iteration):
         """
         Method decides next step in solving strategy in consideration of given evaluation of previous guess.
         :param iteration: not needed in this type of algorithm
@@ -32,7 +32,7 @@ class BruteForce(SolvingAlgorithm):
         :param pattern_size: size of the guessed pattern
         :return: string designating whether to continue or end game
         """
-        if evaluation == [str(1) for _ in range(pattern_size)]:
+        if evaluation == [str(1) for _ in range(self.pattern_size)]:
             return "finish"
         else:
             return "continue"
