@@ -13,12 +13,13 @@ class Benchmark:
         self.save_data_output()
 
     def generate_data(self):
+        # TODO: Separate tests into four lengths and plot it as subplots or whatever, I don'ŧ care
         for solver in Controller.solvers:
             with progressbar(
                     range(self.args.number_of_tests),
                     show_percent=True,
                     show_eta=True,
-                    label="Running benchmark for {}\t: ".format(Controller.solvers[solver].__name__)) as bar:
+                    label="Running benchmark for {}:\t".format(Controller.solvers[solver].__name__)) as bar:
                 for i in bar:
                     game = Controller(
                         solver,
