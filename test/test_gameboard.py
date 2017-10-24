@@ -1,7 +1,7 @@
 import model.gameboard
 
 
-gb = model.gameboard.Gameboard()
+gb = model.gameboard.Gameboard(attempts=12, pattern_size=5, number_of_colors=8)
 
 
 def test_init():
