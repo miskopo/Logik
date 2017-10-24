@@ -15,9 +15,10 @@ class BruteForce(SolvingAlgorithm):
 
     def guess_pattern(self):
         # generate cartesian product of possible colors
+        # Note: For pattern_size = 5 and number of colors = 8 there are 32,768 possibilities.
         if len(self.guessed) == 0:
-            self.guessed = list(map(lambda x: list(x), list(product(self.colors, repeat=self.pattern_size))))[:self.attempts]
-        # return self.guessed
+            self.guessed = list(map(lambda x: list(x),
+                                    list(product(self.colors, repeat=self.pattern_size))))[:self.attempts+1]
 
     def decide_next_step(self, evaluation, pattern_size):
         if evaluation == [str(1) for _ in range(pattern_size)]:

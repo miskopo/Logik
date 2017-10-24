@@ -1,5 +1,8 @@
 from model.gameboard import Gameboard
 from controller.brute_force_solving_algorithm import BruteForce
+from controller.true_random_solving_algorithm import TrueRandom
+from controller.single_color_solving_algorithm import SingleColor
+from controller.semi_random_solving_algorithm import SemiRandom
 
 
 class Controller:
@@ -7,10 +10,15 @@ class Controller:
         self.gameboard = Gameboard(attempts=attempts)
         self.gameboard.generate_pattern()
         self.guessed = []
-        if solving_algorithm_name == "bruteforce":
-            self.solver = BruteForce(pattern_size=self.gameboard.pattern_size,
-                                     colors=self.gameboard.colors,
-                                     attempts=self.gameboard.attempts)
+        solver = {
+            "brute_force": BruteForce,
+            "true_random": TrueRandom,
+            "single_color": SingleColor,
+            "semi_random": SemiRandom
+        }
+        self.solver = solver[solving_algorithm_name](pattern_size=self.gameboard.pattern_size,
+                                                     colors=self.gameboard.colors,
+                                                     attempts=self.gameboard.attempts)
 
     def __call__(self, *args, **kwargs):
         pass
@@ -19,14 +27,12 @@ class Controller:
         self.solver.guess_pattern()
         return self.solver.guessed
 
-    # def evaluate_guessed_pattern(self):
-    #     pass
-
     def make_one_turn(self, iteration=0):
         self.gameboard.guessed = self.guess_pattern()[iteration]
         self.gameboard.evaluate_guess()
 
     def run_game(self):
+        print()
         for iteration in range(self.gameboard.attempts):
             self.make_one_turn(iteration)
             action = self.solver.decide_next_step(self.gameboard.evaluation, self.gameboard.pattern_size)
@@ -49,7 +55,5 @@ class Controller:
 
 
 # temporary solution
-# controller = Controller("bruteforce", attempts=10000)
-# controller.run_game()
-
-
+controller = Controller("brute_force", attempts=32768)
+controller.run_game()

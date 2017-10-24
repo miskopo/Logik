@@ -24,7 +24,7 @@ class Gameboard:
         # self.pattern = [4,4,4,4,4]
         # chosen by fair dice roll
         # guaranteed to be random (xkcd.com/221)
-        self.pattern = [str(randint(0, self.number_of_colors)) for _ in range(0, self.pattern_size)]
+        self.pattern = [str(randint(0, self.number_of_colors-1)) for _ in range(0, self.pattern_size)]
 
     def evaluate_guess(self):
         self.evaluation = [
