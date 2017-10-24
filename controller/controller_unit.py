@@ -4,11 +4,13 @@ from controller.brute_force_solving_algorithm import BruteForce
 
 class Controller:
     def __init__(self, solving_algorithm_name, attempts=1000):
-        self.gameboard = Gameboard(attempts)
+        self.gameboard = Gameboard(attempts=attempts)
         self.gameboard.generate_pattern()
         self.guessed = []
         if solving_algorithm_name == "bruteforce":
-            self.solver = BruteForce(self.gameboard.pattern_size, self.gameboard.colors, self.gameboard.attempts)
+            self.solver = BruteForce(pattern_size=self.gameboard.pattern_size,
+                                     colors=self.gameboard.colors,
+                                     attempts=self.gameboard.attempts)
 
     def __call__(self, *args, **kwargs):
         pass
@@ -47,7 +49,7 @@ class Controller:
 
 
 # temporary solution
-controller = Controller("bruteforce", attempts=1000)
+controller = Controller("bruteforce", attempts=10000)
 controller.run_game()
 
 
