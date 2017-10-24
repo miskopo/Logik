@@ -17,12 +17,8 @@ class BruteForce(SolvingAlgorithm):
         # generate cartesian product of possible colors
         self.guessed = map(lambda x: list(x), [product(self.colors, repeat=self.pattern_size)])[0:self.attempts]
 
-
     def assess_evaluation(self):
         pass
 
     def decide_next_step(self):
         pass
-
-
-

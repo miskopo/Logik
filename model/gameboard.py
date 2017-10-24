@@ -20,12 +20,11 @@ class Gameboard:
         self.evaluation = []
 
     def generate_pattern(self):
-        self.pattern = (4,4,4,4,4)
+        self.pattern = (4, 4, 4, 4, 4)
         # chosen by fair dice roll
         # guaranteed to be random
         self.pattern = "".join(
-            str(randint(0, self.number_of_colors))
-                    for _ in range(0, self.pattern_size))
+            str(randint(0, self.number_of_colors)) for _ in range(0, self.pattern_size))
 
 
 
