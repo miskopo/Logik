@@ -16,12 +16,12 @@ class SingleColor(SolvingAlgorithm):
     def decide_next_step(self, evaluation, iteration):
         if evaluation == [str(1) for _ in range(self.pattern_size)]:
             return "finish"
-        elif '-1' in evaluation:
+        elif '-1' in evaluation and iteration != 7:
             last_guess = self.guessed[iteration]
             bad_color = last_guess[evaluation.index('-1')]
             if int(bad_color) in self.colors:
                 self.colors.remove(int(bad_color))
-            self.guessed = []
+            # self.guessed = []
             return "continue"
         else:
             return "brute_force", self.colors

@@ -9,7 +9,11 @@ class Benchmark:
 
     def __call__(self, *args, **kwargs):
         for solver in Controller.solvers:
-            with progressbar(range(self.args.number_of_tests), show_percent=True, show_eta=True, label="Running benchmark for {}".format(Controller.solvers[solver].__name__)) as bar:
+            with progressbar(
+                    range(self.args.number_of_tests),
+                    show_percent=True,
+                    show_eta=True,
+                    label="Running benchmark for {}\t: ".format(Controller.solvers[solver].__name__)) as bar:
                 for _ in bar:
                     game = Controller(
                         solver,
@@ -18,4 +22,4 @@ class Benchmark:
                         attempts=self.args.attempts,
                         pattern_size=self.args.pattern_size)
                     self.results.append((Controller.solvers[solver].__name__, game()))
-        # print(self.results),
+        # print(self.results)

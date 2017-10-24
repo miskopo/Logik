@@ -36,15 +36,18 @@ class Controller:
         self.gameboard.evaluate_guess()
 
     def run_game(self):
-        for iteration in range(self.gameboard.attempts):
+        iteration = 0
+        while iteration < self.gameboard.attempts:
             self.make_one_turn(iteration)
             action = self.solver.decide_next_step(self.gameboard.evaluation, iteration)
             if action == "finish":
                 return self.end_game(iteration, self.gameboard.pattern, solver_won=True)
             elif action == "continue":
+                iteration += 1
                 continue
             elif len(action) == 2:
                 self.gameboard.attempts = len(action[1]) ** self.gameboard.pattern_size
+                iteration = 0
                 self.solver = self.solvers[action[0]](pattern_size=self.gameboard.pattern_size,
                                                       colors=action[1],
                                                       attempts=self.gameboard.attempts)
