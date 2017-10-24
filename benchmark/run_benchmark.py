@@ -10,6 +10,7 @@ class Benchmark:
     def __call__(self, *args, **kwargs):
         self.generate_data()
         self.process_data()
+        self.save_data_output()
 
     def generate_data(self):
         for solver in Controller.solvers:
@@ -26,8 +27,24 @@ class Benchmark:
                         attempts=self.args.attempts,
                         pattern_size=self.args.pattern_size)
                     result = game()
-                    self.results = self.results.append(pd.DataFrame([[Controller.solvers[solver].__name__, result[0], result[1]]], columns=self.results.columns), ignore_index=True)
+                    self.results = self.results.append(
+                        pd.DataFrame([[Controller.solvers[solver].__name__,
+                                       result[0],
+                                       result[1]]],
+                                     columns=self.results.columns), ignore_index=True)
 
     def process_data(self):
-        self.results.set_index(['Solver name', 'Wins'], inplace=True)
-        print(self.results)
+        self.results = self.results.loc[self.results['Wins']]
+        del self.results['Wins']
+        self.results['Attempts'] = pd.to_numeric(self.results['Attempts'])
+        self.results = self.results.groupby('Solver name').mean()
+
+    def save_data_output(self):
+        # print(self.results)
+        plot = self.results.plot(kind='bar',
+                                 title="Average of attempts needed to solve game",
+                                 grid=True,
+                                 rot=0,
+                                 legend=False)
+        fig = plot.get_figure()
+        fig.savefig('view/graph.png')
