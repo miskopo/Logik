@@ -21,6 +21,6 @@ _Mastermind or Master Mind is a code-breaking game for two players. The modern g
 
 ## Solving strategies:
 - [x] **Brute force**: computer tries every possibility till it finds solution or loose, eventually
-- [ ] **Single color**: computer always fills answering row with single color up to point it knows all used colors, then switches to brute force
+- [x] **Single color**: computer always fills answering row with single color up to point it knows all used colors, then switches to brute force
 - [ ] **Semi-random**: computer fills random colors and remembers correct colors/positions. This is human-like approach.
 - [x] **True random**: computer fills random colors forever. Or till it wins, which is unlikely, to be honest.
