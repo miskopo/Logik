@@ -49,7 +49,7 @@ class Controller:
 
 
 # temporary solution
-controller = Controller("bruteforce", attempts=10000)
-controller.run_game()
+# controller = Controller("bruteforce", attempts=10000)
+# controller.run_game()
 
 
