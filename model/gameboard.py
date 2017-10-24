@@ -10,7 +10,7 @@ class Gameboard:
     status field and possible colors to choose from.
     """
 
-    def __init__(self, number_of_colors=8, pattern_size=5, attempts=12):
+    def __init__(self, number_of_colors, pattern_size, attempts):
         self.number_of_colors = number_of_colors
         self.pattern_size = pattern_size
         self.attempts = attempts

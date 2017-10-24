@@ -16,7 +16,7 @@ class SolvingAlgorithm:
     def guess_pattern(self):
         pass
 
-    def decide_next_step(self, evaluation, pattern_size):
+    def decide_next_step(self, evaluation, pattern_size, iteration):
         pass
 
 

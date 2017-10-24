@@ -10,11 +10,19 @@ class SingleColor(SolvingAlgorithm):
         self.guessed = []
 
     def guess_pattern(self):
-        self.guessed = [self.pattern_size * str(self.colors[i]).split() for i in self.colors][0:self.attempts]
+        if len(self.guessed) == 0:
+            self.guessed = [self.pattern_size * str(i).split() for i in self.colors]
 
-    def decide_next_step(self, evaluation, pattern_size):
+    def decide_next_step(self, evaluation, pattern_size, iteration):
         if evaluation == [str(1) for _ in range(pattern_size)]:
             return "finish"
-        else:
-            # TODO
+        elif '-1' in evaluation:
+            last_guess = self.guessed[iteration]
+            bad_color = last_guess[evaluation.index('-1')]
+            if int(bad_color) in self.colors:
+                self.colors.remove(int(bad_color))
+            self.guessed = []
             return "continue"
+        else:
+            return "brute_force", self.colors
+
