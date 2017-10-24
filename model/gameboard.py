@@ -28,5 +28,5 @@ class Gameboard:
 
     def evaluate_guess(self):
         self.evaluation = [
-            "1" if str(x) == self.pattern[i] else "0" if str(x) in self.pattern else "-1" for i, x in enumerate(self.guessed)
-        ]
+            "1" if str(x) == self.pattern[i] else "0" if str(x) in self.pattern else "-1"
+            for i, x in enumerate(self.guessed)]

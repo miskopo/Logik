@@ -5,9 +5,10 @@ from controller.true_random_solving_algorithm import TrueRandom
 from controller.single_color_solving_algorithm import SingleColor
 from controller.semi_random_solving_algorithm import SemiRandom
 
+
 class Controller:
-    def __init__(self, solving_algorithm_name, attempts=1000):
-        self.args = arg_parser.init_parser()
+    def __init__(self, solving_algorithm_name, arg_parser, attempts=1000):
+        self.args = arg_parser
         self.gameboard = Gameboard(attempts=attempts)
         self.gameboard.generate_pattern()
         self.guessed = []
@@ -22,7 +23,7 @@ class Controller:
                                                      attempts=self.gameboard.attempts)
 
     def __call__(self, *args, **kwargs):
-        pass
+        self.run_game()
 
     def guess_pattern(self):
         self.solver.guess_pattern()
@@ -55,7 +56,3 @@ class Controller:
             ))
         return True
 
-
-# temporary solution
-controller = Controller("true_random", attempts=10000)
-controller.run_game()
