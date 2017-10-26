@@ -10,7 +10,7 @@ class Controller:
         "brute_force": BruteForce,
         "true_random": TrueRandom,
         "single_color": SingleColor,
-        # "semi_random": SemiRandom
+        "semi_random": SemiRandom
     }
 
     def __init__(self, solving_algorithm_name, arg_parser, number_of_colors=8, attempts=1000, pattern_size=5, ):
