@@ -14,6 +14,7 @@ class Benchmark:
 
     def generate_data(self):
         # TODO: Separate tests into four lengths and plot it as subplots or whatever, I don't care
+        
         for solver in Controller.solvers:
             with progressbar(
                     range(self.args.number_of_tests),
