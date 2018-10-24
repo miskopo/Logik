@@ -2,3 +2,5 @@ pandas
 colorama
 click
 numpy
+pytest
+pytest-cov
